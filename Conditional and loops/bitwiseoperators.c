@@ -4,27 +4,28 @@
 #include <stdlib.h>
 //Complete the following function.
 
-
 void calculate_the_maximum(int n, int k) {
-    int maxforand = 0;
-    int maxforor = 0;
-    int maxforxor = 0;
-    
-    for(int i = 1;i <= n;i++){
-        for(int j = i+1;j<n;j++){
-            if(((i&j) > maxforand) && ((i&j) < k)){
-                maxforand = i&j;
+    int maxforAnd = 0;
+    int maxforOr = 0;
+    int maxforXor = 0;
+
+    for (int i=1; i<=n; i++) {
+        for (int j=i+1; j<=n; j++) {
+            if (((i&j) > maxforAnd) && ((i&j) < k)) {
+                maxforAnd = i&j;
             }
-            if(((i|j)> maxforor) && ((i|j) < k)){
-                maxforor = i|j;
+            if (((i|j) > maxforOr) && ((i|j) < k)) {
+                maxforOr = i|j;
             }
-            if(((i^j) > maxforxor) && ((i^j) < k)){
-                maxforxor = i^j;
+            if (((i^j) > maxforXor) && ((i^j) < k)) {
+                maxforXor = i^j;
             }
         }
     }
-    printf("%d\n%d\n%d\n",maxforand,maxforor,maxforxor);
+
+    printf("%d\n%d\n%d\n", maxforAnd, maxforOr, maxforXor);
 }
+
 int main() {
     int n, k;
   
